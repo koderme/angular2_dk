@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var product_service_1 = require("./product.service");
 var ProductListComponent = (function () {
@@ -51,15 +52,15 @@ var ProductListComponent = (function () {
             _this.filteredProducts = _this.products;
         }, function (error) { return _this.errorMessage = error; });
     };
+    ProductListComponent = __decorate([
+        core_1.Component({
+            selector: 'pm-products',
+            templateUrl: 'app/products/product-list.component.html',
+            styleUrls: ['app/products/product-list.component.css']
+        }),
+        __metadata("design:paramtypes", [product_service_1.ProductService])
+    ], ProductListComponent);
     return ProductListComponent;
 }());
-ProductListComponent = __decorate([
-    core_1.Component({
-        selector: 'pm-products',
-        templateUrl: 'app/products/product-list.component.html',
-        styleUrls: ['app/products/product-list.component.css']
-    }),
-    __metadata("design:paramtypes", [product_service_1.ProductService])
-], ProductListComponent);
 exports.ProductListComponent = ProductListComponent;
 //# sourceMappingURL=product-list.component.js.map
