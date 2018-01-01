@@ -10,10 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var ProductDetailComponent = (function () {
-    function ProductDetailComponent() {
+    function ProductDetailComponent(_route, _router) {
+        this._route = _route;
+        this._router = _router;
+        this.pageTitle = 'Product Detail';
     }
     ProductDetailComponent.prototype.ngOnInit = function () {
+        console.log("product-detail: OnInit");
+        var id = +this._route.snapshot.paramMap.get('id');
+        this.pageTitle += ": " + id;
+        this.product = {
+            "productId": id,
+            "productName": "Leaf Rake",
+            "productCode": "GDN-011",
+            "releaseDate": "March 19, 2016",
+            "description": " Leaf rake with 48 inch wooden handle",
+            "price": 19.95,
+            "starRating": 3.2,
+            "imageUrl": ""
+        };
+    };
+    ProductDetailComponent.prototype.onBack = function () {
+        this._router.navigate(['/products']);
     };
     ProductDetailComponent = __decorate([
         core_1.Component({
@@ -21,7 +41,8 @@ var ProductDetailComponent = (function () {
             templateUrl: 'app/products/product-detail.component.html',
             styleUrls: ['app/products/product-detail.component.css']
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            router_1.Router])
     ], ProductDetailComponent);
     return ProductDetailComponent;
 }());
